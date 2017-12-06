@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLocalesTable extends Migration
+class CreateLocalsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateLocalesTable extends Migration
      */
     public function up()
     {
-        Schema::create('locales', function (Blueprint $table) {
+        Schema::create('locals', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
@@ -23,6 +23,18 @@ class CreateLocalesTable extends Migration
             $table->integer('validar');
             $table->timestamps();
         });
+
+        Schema::create('local_category', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('local_id')->unsigned();
+            $table->integer('category_id')->unsigned();
+
+            $table->foreign('local_id')->references('id')->on('local');
+            $table->foreign('category_id')->references('id')->on('categories');
+
+            $table->timestamps();
+        });
+
     }
 
     /**
@@ -32,6 +44,6 @@ class CreateLocalesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('locales');
+        Schema::dropIfExists('locals');
     }
 }

@@ -20,6 +20,3 @@ Route::resource('locales' , 'LocalesController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/hola/saludo', function () {
-  return 'Hola boludo';
-});

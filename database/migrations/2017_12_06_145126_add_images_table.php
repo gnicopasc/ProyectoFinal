@@ -17,9 +17,6 @@ class AddImagesTable extends Migration
           $table->increments('id');
           $table->string('name');
 
-          $table->integer('categories_id')->unsigned();
-          $table->foreign('categories_id')->references('id')->on('categories')->onDelete('cascade');
-
           $table->integer('local_id')->unsigned();
           $table->foreign('local_id')->references('id')->on('local')->onDelete('cascade');
 

@@ -20,21 +20,14 @@ class CreateLocalsTable extends Migration
             $table->string('direccion');
             $table->integer('tel');
             $table->string('description');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('logo');
+            $table->smallInteger('restaurant')->unsigned()->default('0');
+            $table->smallInteger('comercio')->unsigned()->default('0');
+            $table->smallInteger('user_id')->unsigned()->index();
             $table->timestamps();
         });
 
-        Schema::create('local_category', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('local_id')->unsigned();
-            $table->integer('category_id')->unsigned();
 
-            $table->foreign('local_id')->references('id')->on('local');
-            $table->foreign('category_id')->references('id')->on('categories');
-
-            $table->timestamps();
-        });
 
     }
 

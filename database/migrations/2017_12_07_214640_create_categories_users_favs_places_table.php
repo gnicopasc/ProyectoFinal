@@ -15,8 +15,8 @@ class CreateCategoriesUsersFavsPlacesTable extends Migration
     {
         Schema::create('categories_users_favs_places', function (Blueprint $table) {
             $table->increments('id');
-            $table->smallInteger('user_id');
-            $table->smallInteger('place_id');
+            $table->smallInteger('user_id')->unsigned()->index();
+            $table->smallInteger('place_id')->unsigned()->index();
             $table->timestamps();
         });
     }

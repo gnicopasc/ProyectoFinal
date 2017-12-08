@@ -17,8 +17,7 @@ class CreateImagesTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('name');
-            $table->integer('local_id')->unsigned();
-            $table->foreign('local_id')->references('id')->on('local')->onDelete('cascade');
+            $table->integer('local_id')->unsigned()->index();
         });
     }
 

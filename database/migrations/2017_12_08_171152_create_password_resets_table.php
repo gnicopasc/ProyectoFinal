@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategoriesPlacesTable extends Migration
+class CreatePasswordResetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateCategoriesPlacesTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories_places', function (Blueprint $table) {
+        Schema::create('password_resets', function (Blueprint $table) {
             $table->increments('id');
-            $table->smallInteger('category_id')->unsigned()->index();
-            $table->integer('place_id')->unsigned()->index();
-            $table->timestamps();
+            $table->string('email')->index();
+            $table->string('token')->index();
+            $table->timestamps('created_at')->nulleable();
         });
     }
 
@@ -28,6 +28,6 @@ class CreateCategoriesPlacesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories_places');
+        Schema::dropIfExists('password_resets');
     }
 }

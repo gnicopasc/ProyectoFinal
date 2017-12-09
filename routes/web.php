@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('locales' , 'LocalesController');
+Route::get('/places', 'PlacesController@list');
 
 Auth::routes();
 

@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Comment;
 use App\User;
+use App\Place;
 
 class CommentSeeder extends Seeder
 {
@@ -13,14 +14,11 @@ class CommentSeeder extends Seeder
      */
     public function run()
     {
-        $users = DB::table('users')->select('id')->take(1)->get();
-
-        $places = DB::table('places')->select('id')->take(1)->get();
 
         Comment::create([
           'comment'=>'Buena atención. Medio flojo el morfi. Le falta fuerza.',
-          'user_id'=>$users->first()->id,
-          'place_id'=>$places->first()->id,
+          'user_id'=>User::where('user', 'Obi Wan')->value('id'),
+          'place_id'=>Place::where('name', 'La Fuerza Vegana')->value('id')
       ]);
     }
 }

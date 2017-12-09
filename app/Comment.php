@@ -1,26 +1,25 @@
 <?php
 
-namespace Verde;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
-    protected $table = "comments";
+  protected $table = "comments";
 
-    protected $fillable = ['content', 'user_id', 'local_id'];
+  protected $fillable = ['comment'];
 
 
-    public function user(){
+  public function user(){
 
-      return $this->belongsTo('App\User');
-      
-    }
+    return $this->belongsTo(User::class);
 
-    public function Local(){
+  }
 
-      return $this->belongsTo('App\Local');
+  public function place(){
 
-    }
+    return $this->belongsTo(Place::class);
 
+  }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategoriesPlacesTable extends Migration
+class CreateCategoriesUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,16 @@ class CreateCategoriesPlacesTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories_places', function (Blueprint $table) {
+        Schema::create('categories_users', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->unsigned();
             $table->integer('category_id')->unsigned();
-            $table->integer('place_id')->unsigned();
             $table->timestamps();
         });
 
-        Schema::table('categories_places', function ($table){
+        Schema::table('categories_users', function ($table){
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('category_id')->references('id')->on('categories');
-            $table->foreign('place_id')->references('id')->on('places');
         });
     }
 
@@ -33,8 +33,8 @@ class CreateCategoriesPlacesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories_places');
-        $table->dropForeign('categories_places_category_id_foreign');
-        $table->dropForeign('categories_places_place_id_foreign');
+        Schema::dropIfExists('categories_users');
+        $table->dropForeign('categories_users_user_id_foreign');
+        $table->dropForeign('categories_users_category_id_foreign');
     }
 }

@@ -16,16 +16,19 @@ class CreatePlacesTable extends Migration
         Schema::create('places', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 250);
-            $table->string('email')->unique();
-            $table->string('location')->nulleable(); /*select de provincias*/
+            $table->string('location')->nullable(); /*select de provincias*/
             $table->string('address');
-            $table->integer('tel')->nulleable();
+            $table->integer('tel')->nullable();
             $table->string('description');
-            $table->string('logo')->default(/*poner ruta de imagen por default*/);
-            $table->boolean('restaurant')->unsigned()->default(0);
-            $table->boolean('comercio')->unsigned()->default(0);
-            $table->integer('user_id')->unsigned()->index();
+            $table->string('logo')->default('empty'/*poner ruta de imagen por default*/);
+            $table->boolean('restaurant')->unsigned()->default(true);
+            $table->boolean('comercio')->unsigned()->default(false);
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
+        });
+
+        Schema::table('places', function($table) {
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -37,5 +40,6 @@ class CreatePlacesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('places');
+        $table->dropForeign('places_user_id_foreign');
     }
 }

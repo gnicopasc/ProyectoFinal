@@ -1,16 +1,16 @@
 <?php
 
-namespace Verde;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Image extends Model
 {
-  protected $table = 'images';
+    protected $table = 'images';
+    protected $fillable = ['src'];
 
-  protected $fillable = ['name','local_id', 'category_id'];
 
-  public function local(){
-
-    return $this->belongsTo('App\Image');
+    public function place(){
+        $this->belongsTo(Place::class);
+    }
 }

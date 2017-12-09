@@ -171,11 +171,11 @@ return [
         /*
          * Application Service Providers...
          */
-        Verde\Providers\AppServiceProvider::class,
-        Verde\Providers\AuthServiceProvider::class,
-        // Verde\Providers\BroadcastServiceProvider::class,
-        Verde\Providers\EventServiceProvider::class,
-        Verde\Providers\RouteServiceProvider::class,
+        App\Providers\AppServiceProvider::class,
+        App\Providers\AuthServiceProvider::class,
+        // App\Providers\BroadcastServiceProvider::class,
+        App\Providers\EventServiceProvider::class,
+        App\Providers\RouteServiceProvider::class,
 
     ],
 

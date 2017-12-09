@@ -1,17 +1,21 @@
 <?php
 
-namespace Verde;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    protected $table = 'categories';
+  protected $table = 'categories';
 
-    protected $fillable = ['tipo', 'name', 'local_id'];
+  protected $fillable = ['food'];
 
-    public function locals (){
+  public function places(){
 
-      return $this->belongsToMany('App\Local');
-    }
+    return $this->belongsToMany(Place::class);
+  }
+  public function users(){
+
+    return $this->belongsToMany(User::class);
+  }
 }

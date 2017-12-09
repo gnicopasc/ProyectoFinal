@@ -1,6 +1,6 @@
 <?php
 
-namespace Verde;
+namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -14,8 +14,11 @@ class User extends Authenticatable
      *
      * @var array
      */
+
+    protected $table = 'users';
+
     protected $fillable = [
-        'name', 'email', 'password', 'type',
+        'user', 'email', 'password', 'avatar','location'
     ];
 
     /**
@@ -27,12 +30,23 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function locals(){
+    protected $casts = [
+        'is_admin' => 'boolean'
+    ];
 
-      return $this->hasMany('App\Local');
+    public function place(){
+      return $this->hasOne(Place::class);
     }
 
     public function comments(){
-      return $this->hasMany('App\Comment');
+      return $this->hasMany(Comment::class);
+    }
+
+    public function categories() {
+        return $this->belongsToMany(Category::class);
+    }
+
+    public function isAdmin() {
+        return $this->is_admin;
     }
 }

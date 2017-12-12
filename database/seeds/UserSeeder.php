@@ -12,12 +12,11 @@ class UserSeeder extends Seeder
      * @return void
      */
     public function run()
-    {   
+    {
         User::create([
             'user'=>'Luke Skywalker',
             'email'=>'luke@gmail.com',
             'password'=>bcrypt('laravel'),
-            'location'=>'Tatooine',
             'is_admin'=>true,
         ]);
 
@@ -25,7 +24,6 @@ class UserSeeder extends Seeder
             'user'=>'Obi Wan',
             'email'=>'obi@gmail.com',
             'password'=>bcrypt('laravel'),
-            'location'=>'Tatooine',
             'is_admin'=>false,
         ]);
     }

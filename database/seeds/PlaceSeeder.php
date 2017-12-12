@@ -13,10 +13,9 @@ class PlaceSeeder extends Seeder
      */
     public function run()
     {
-        
+
         Place::create ([
             'name'=>'La Fuerza Vegana',
-            'location'=>'Tatooine',
             'address'=>'Cuadrante 5G',
             'description'=>'Los mejores platos veganos de la galaxia',
             'restaurant'=>true,

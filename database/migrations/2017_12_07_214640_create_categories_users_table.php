@@ -15,15 +15,11 @@ class CreateCategoriesUsersTable extends Migration
     {
         Schema::create('categories_users', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
-            $table->integer('category_id')->unsigned();
+            $table->smallInteger('user_id')->unsigned()->index();
+            $table->smallInteger('category_id')->unsigned()->index();
             $table->timestamps();
         });
 
-        Schema::table('categories_users', function ($table){
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('category_id')->references('id')->on('categories');
-        });
     }
 
     /**
@@ -34,7 +30,5 @@ class CreateCategoriesUsersTable extends Migration
     public function down()
     {
         Schema::dropIfExists('categories_users');
-        $table->dropForeign('categories_users_user_id_foreign');
-        $table->dropForeign('categories_users_category_id_foreign');
     }
 }

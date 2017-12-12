@@ -18,8 +18,6 @@ class CreateUsersTable extends Migration
             $table->string('user', 100);
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('avatar')->default('empty'/**hay que poner una pic por defecto*/)->nullable();
-            $table->string('location')->nullable();
             $table->boolean('is_admin')->default(false);
             $table->timestamps();
             $table->rememberToken();

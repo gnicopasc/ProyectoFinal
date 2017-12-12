@@ -23,12 +23,8 @@ class CreatePlacesTable extends Migration
             $table->string('logo')->default('empty'/*poner ruta de imagen por default*/);
             $table->boolean('restaurant')->unsigned()->default(true);
             $table->boolean('comercio')->unsigned()->default(false);
-            $table->integer('user_id')->unsigned();
+            $table->smallInteger('user_id')->unsigned()->index();
             $table->timestamps();
-        });
-
-        Schema::table('places', function($table) {
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -40,6 +36,5 @@ class CreatePlacesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('places');
-        $table->dropForeign('places_user_id_foreign');
     }
 }

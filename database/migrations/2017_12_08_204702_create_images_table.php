@@ -16,13 +16,10 @@ class CreateImagesTable extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->increments('id');
             $table->string('src');
-            $table->integer('place_id')->unsigned();
+            $table->smallInteger('place_id')->unsigned()->index();
             $table->timestamps();
         });
 
-        Schema::table('images', function($table){
-        $table->foreign('place_id')->references('id')->on('places');
-    });
     }
 
     /**
@@ -33,6 +30,5 @@ class CreateImagesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('images');
-        $table->dropForeign('images_place_id_foreign');
     }
 }

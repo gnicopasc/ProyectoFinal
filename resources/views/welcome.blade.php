@@ -79,7 +79,10 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                  @if (\Auth::check())
+                    {{\Auth::user()->user}}
+                  @endif
+                    logueato cornudo
                 </div>
 
                 <div class="links">

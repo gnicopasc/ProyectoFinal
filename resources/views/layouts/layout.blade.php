@@ -24,35 +24,27 @@
         <!-- Add your site or application content here -->
         <!--Cargar primero el body y después los scripts-->
         <header>
-    		<div class="logo">
-    			<img src="imagenes/logo.png" alt="Logo" />
-    		</div>
-    		<div class="titular">
-    			<h1 class="titulo">
-    				Maisha: ¿Dónde comemos?
-    			</h1>
 
 
-    		</div>
-    		<div class="user">
-    			<figure class="avatar">
-    				<img src="imagenes/avatar.jpg" alt="" />
-    			</figure>
-    		</div>
     	</header>
         <nav>
+          <div class="logo">
+      			<img src="imagenes/logo.png" alt="Logo" />
+      		</div>
     		<ul class="menu">
-    			<li><a href="#">Home</a></li>
-    			<li><a href="#">Registro</a></li>
-    			<li><a href="#">Login</a></li>
+    			<li><a href="#">Locales</a></li>
+    			<li><a href="#">Restaurants</a></li>
     			<li><a href="#">Alimentación</a></li>
-    			<li><a href="#">Buscar</a></li>
-                <li><a class="publicar" href="#">
-                    <strong>Agregar</strong>
-                </a></li>
+    			<li><a href="#">Iniciar Sesion</a></li>
+    			<li><a href="#">Registrarse</a></li>
+          <li><a class="publicar" href="#"><strong>Agregar</strong></a></li>
+          <div class="user">
+      			<img src="imagenes/avatar.jpg" alt=""/>
+      		</div>
 
     		</ul>
-    	</nav>
+
+      </nav>
 
 
 

@@ -10,5 +10,5 @@
         <li>{{$place->address}}</li>
         <li>{{$place->location}}</li>
     @endforeach
-  </body>
-</html>
+
+    

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\Place;
+use Illuminate\Support\Facades\Auth;
 
 class PlaceController extends Controller
 {
@@ -38,7 +39,7 @@ class PlaceController extends Controller
     {
         // dd($request->all());
         $place = new Place($request->all());
-        $place->user_id = 1;
+        $place->user_id = Auth::User()->id;
         $place->save();
 
         return redirect()->route('places.index');

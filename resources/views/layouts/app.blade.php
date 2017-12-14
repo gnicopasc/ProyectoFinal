@@ -9,7 +9,7 @@
     <meta user="csrf-token" content="{{ csrf_token() }}">
 
     {{-- <title>{{ config('app.user', 'Laravel') }}</title> --}}
-    <title>Home</title>
+    <title>Darshan</title>
 
 
     <!-- Styles -->
@@ -73,6 +73,7 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li class="agregar"><a href="{{route('places.create')}}" style="color:white; "><b>Agregar</b></a></li>
                         @endguest
                     </ul>
                 </div>

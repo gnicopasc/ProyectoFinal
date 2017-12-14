@@ -48,21 +48,46 @@ body {
       .m-b-md {
           margin-bottom: 30px;
       }
-
+    .dropdown a{
+        background-color: rgb(218, 218, 218);
+        font-weight: 600px;
+        color: black;
+    }
+    .agregar a{
+        color: white;
+        padding: 1px;
+        background-color: rgb(172, 170, 122);
+    }
 .posteo {
       list-style: none;
+      padding-left: 0;
 }
+    .panel-heading{
+        font-size: 1.2em;
+        font-weight: 500;
+    }
+    .panel-body {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+        .placebuttons {
+            padding-left: 1em;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        .edit {
+            padding-right: 1em;
+            /* background-color: blue; */
+        }
 
-.edit {
-    background-color: blue;
-}
-
-.app {
-    background-image: url('../img/restaurant_icons2.png');
-    background-repeat: repeat;
-    /* background-color: blue; */
-    height: 100vh;
-}
+        .app {
+            background-image: url('../img/restaurant_icons2.png');
+            background-repeat: repeat;
+            /* background-color: blue; */
+            height: 100vh;
+        }
 
 
 .home {
@@ -84,4 +109,7 @@ body {
         .description {
             font-size: 0.3em;
         }
+    .panel-body {
+        justify-content: space-between;
+    }
 }

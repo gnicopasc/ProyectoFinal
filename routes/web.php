@@ -15,9 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/estilo', function () {
-    return view('layouts.layout');
-});
 
 Auth::routes();
 

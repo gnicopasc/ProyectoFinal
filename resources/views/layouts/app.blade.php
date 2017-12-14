@@ -3,18 +3,23 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta user="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta user="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    {{-- <title>{{ config('app.user', 'Laravel') }}</title> --}}
+    <title>Home</title>
+
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
 </head>
+
 <body>
-    <div id="app">
+    <div id="app" class="app">
+
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
@@ -29,7 +34,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        Darshan
                     </a>
                 </div>
 
@@ -42,21 +47,16 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
+                            <li><li><a href="{{route('places.index')}}">Lugares</a></li></li>
+                            <li><li><a href="">Tipos de comida</a></li></li>
+                            <li><li><a href="">Buscar</a></li></li>
                         @guest
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
-                            <li><li><a href="">Locales</a></li></li>
-                            <li><li><a href="">Restaurants</a></li></li>
-                            <li><li><a href="">Tipos de comida</a></li></li>
-                            <li><li><a href="">Buscar</a></li></li>
+                            <li><a href="{{ route('login') }}">Iniciar Sesión</a></li>
+                            <li><a href="{{ route('register') }}">Registrarse</a></li>
                         @else
-                            <li><li><a href="">Locales</a></li></li>
-                            <li><li><a href="">Restaurants</a></li></li>
-                            <li><li><a href="">Tipos de comida</a></li></li>
-                            <li><li><a href="">Buscar</a></li></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ Auth::User()->user }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu">
@@ -78,7 +78,6 @@
                 </div>
             </div>
         </nav>
-
         @yield('content')
     </div>
 

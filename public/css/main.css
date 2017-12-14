@@ -1,51 +1,87 @@
-a{
-  color:rgb(124, 200, 161)
-}
-body{
-  background:#e8e8e8;
-  color:#444;
-  font-family:Arial;
-  font-size:16px
+body {
+    background-color: #fff;
+    color: #636b6f;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 100;
+    height: 100vh;
+    margin: 0;
+      }
+
+      .full-height {
+          height: 100vh;
+      }
+
+      .flex-center {
+          align-items: center;
+          display: flex;
+          justify-content: center;
+      }
+
+      .position-ref {
+          position: relative;
+      }
+
+      .top-right {
+          position: absolute;
+          right: 10px;
+          top: 18px;
+      }
+
+      .content {
+          text-align: center;
+      }
+
+      .title {
+          font-size: 84px;
+      }
+
+      .links > a {
+          color: #636b6f;
+          padding: 0 25px;
+          font-size: 12px;
+          font-weight: 600;
+          letter-spacing: .1rem;
+          text-decoration: none;
+          text-transform: uppercase;
+      }
+
+      .m-b-md {
+          margin-bottom: 30px;
+      }
+
+.posteo {
+      list-style: none;
 }
 
-nav {
-  background:rgb(17, 28, 24);
-  position:relative;
-  display:flex;
-  justify-content:right;
+.edit {
+    background-color: blue;
 }
 
-nav.menu{
-  height:40px;
-  line-height:40px;
-  margin:0;
-  padding:0;
-  overflow-x:auto;
-  white-space:nowrap;
-  position:relative;
-  right:10px}
-  
-nav .menu::-webkit-scrollbar{display:none}
-nav .menu li{display:inline-block;}
-nav .menu li a{color:#fff;display:block;margin:0 .5em;padding:0 .2em;text-decoration:none;}
-nav .menu li:before{border-left: 1px solid white;}
-nav .menu li a:hover{background:rgba(0,0,0,0.1)}
-.publicar{background:rgb(124, 200, 161);border-radius:5px;color:#fff;padding:.1em .4em;text-decoration:none;}
-nav.user{
-  position:absolute;
-  right:10px;
-  top:10px;
+.app {
+    background-image: url('../img/restaurant_icons2.png');
+    background-repeat: repeat;
+    /* background-color: blue; */
+    height: 100vh;
 }
-nav .user img{
-  border-radius:50%;
-  width:50px;
+
+
+.home {
+    font-size: 0.8em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1em;
 }
-nav.logo{
-  border-right:
-  1px solid rgb(17, 28, 24);
-  float:left;
-  width:60px;
+
+    .description {
+        font-size: 0.4em
+    }
+
+@media (min-width: 768px) {
+    .home {
+        font-size: 2em;
+    }
+        .description {
+            font-size: 0.3em;
+        }
 }
-nav.logo img{width:52px}
-rgb(17, 28, 24)
-rgb(124, 200, 161)

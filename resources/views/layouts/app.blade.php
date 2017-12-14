@@ -18,10 +18,10 @@
     <link rel="stylesheet" href="/css/main.css">
 </head>
 
-<body>
+<body id="body">
     <div id="app" class="app">
 
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav id = "barra" class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
 
@@ -48,19 +48,22 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
-                            <li><li><a href="{{route('places.index')}}">Lugares</a></li></li>
+
                             <li><li><a href="">Tipos de comida</a></li></li>
                             <li><li><a href="">Buscar</a></li></li>
                         @guest
                             <li><a href="{{ route('login') }}">Iniciar Sesión</a></li>
                             <li><a href="{{ route('register') }}">Registrarse</a></li>
                         @else
+                            <li><li><a href="{{route('places.index')}}">Lugares</a></li></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
                                     {{ Auth::User()->user }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu">
+                                    <li><a href="{{route('myplaces')}}">Mis Lugares</a></li>
+                                    <li> <a id="change">Cambiar fondo</a></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -84,7 +87,14 @@
     </div>
 
     <!-- Scripts -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    {{-- <script type="text/javascript">
+      document.getElementById('change').onclick=function () {
+        document.querySelector('.app').style.background="grey",
+        document.getElementById('barra').style.background="#c6c498",
+      }
+    </script> --}}
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/comportamientos.js') }}"></script>
+    @yield('js')
 </body>
 </html>

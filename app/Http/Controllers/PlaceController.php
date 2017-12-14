@@ -19,6 +19,13 @@ class PlaceController extends Controller
         return view('places.index', compact('places'));
     }
 
+    public function indexB(){
+
+        $places=Place::all();
+        // dd($places);
+        $places=$places->where("user_id","=",Auth::User()->id);
+        return view('places.indexB', compact('places'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -37,12 +44,42 @@ class PlaceController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
+        $this->validate(
+         $request,
+         [
+           'name' => 'required',
+           'location' => 'required',
+           'address' => 'required',
+           'tel' =>'numeric | between:0,99999999',
+           'description'=>'required'
+         ],
+         [
+           'name.unique' => 'Ya hay un lugar registrado con ese nombre',
+           'name.required' => 'El nombre es obligatorio',
+           'location.required' => 'Indique una provincia o localidad',
+           'address.required' => 'Indique una dirección',
+           'tel' => 'El campo :attribute debe ser un número',
+           'description' => 'Describa brevemente su comercio',
+           'rating.between' => 'Rating, entre 1 y 10',
+         ]
+       );
         $place = new Place($request->all());
         $place->user_id = Auth::User()->id;
         $place->save();
 
         return redirect()->route('places.index');
+
+
+
+    // $nombre = 'producto' . $request->name .'.'. $request->file('images')->extension();
+    // $path = $request->file('images')->storePubliclyAs('public/productos', $nombre);
+    // $producto = new Product($request->all());
+    // $producto->images = "/storage/productos/".$nombre;
+    // $producto->save();
+    // dd($producto);
+    // return redirect('/productos');
+
+  /* src={{$place->avatar}} */
     }
 
     /**

@@ -67,3 +67,9 @@
     </div>
 </div>
 @endsection
+
+@section('js')
+  <script type="text/javascript">
+    document.getElementById('email').focus();
+    </script>
+@endsection

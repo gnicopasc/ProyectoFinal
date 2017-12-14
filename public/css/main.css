@@ -48,7 +48,7 @@ body {
       .m-b-md {
           margin-bottom: 30px;
       }
-    .dropdown a{
+    .dropdown {
         background-color: rgb(218, 218, 218);
         font-weight: 600px;
         color: black;
@@ -56,11 +56,17 @@ body {
     .agregar a{
         color: white;
         padding: 1px;
-        background-color: rgb(172, 170, 122);
+        background-color: #c6c498;
     }
+      .agregar:hover {
+        background-color: grey;
+      }
     .form-horizontal {
         width: 800px;
     }
+    /*#barra ul li {
+      background-color: black;
+    }*/
 .posteo {
       list-style: none;
       padding-left: 0;
@@ -80,6 +86,7 @@ body {
             flex-direction: row;
             justify-content: center;
         }
+
         .edit {
             padding-right: 1em;
             /* background-color: blue; */
@@ -88,7 +95,7 @@ body {
         .app {
             background-image: url('../img/restaurant_icons2.png');
             background-repeat: repeat;
-            /* background-color: blue; */
+            overflow:auto;
             height: 100vh;
         }
 
@@ -108,6 +115,7 @@ body {
 @media (min-width: 768px) {
     .home {
         font-size: 2em;
+        padding:0.4em;
     }
         .description {
             font-size: 0.3em;

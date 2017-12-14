@@ -8,8 +8,7 @@ class Place extends Model
 {
       protected $table = 'places';
 
-      protected $filliable = ['name', 'location', 'address', 'tel', 'description', 'logo', 'restaurant', 'comercio',];
-
+      protected $fillable = ['name', 'location', 'address', 'tel', 'description', 'logo', 'restaurant', 'comercio',];
 
       protected $cast = [
             'restaurant' =>'boolean',
@@ -35,6 +34,4 @@ class Place extends Model
       // public function categories(){
       //       return $this->hasMany('')
       // }
-
-
 }

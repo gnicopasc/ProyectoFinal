@@ -45,7 +45,15 @@
                         @guest
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><li><a href="">Locales</a></li></li>
+                            <li><li><a href="">Restaurants</a></li></li>
+                            <li><li><a href="">Tipos de comida</a></li></li>
+                            <li><li><a href="">Buscar</a></li></li>
                         @else
+                            <li><li><a href="">Locales</a></li></li>
+                            <li><li><a href="">Restaurants</a></li></li>
+                            <li><li><a href="">Tipos de comida</a></li></li>
+                            <li><li><a href="">Buscar</a></li></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
                                     {{ Auth::user()->name }} <span class="caret"></span>

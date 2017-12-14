@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Place;
+use \App\Place;
 
-class PostsController extends Controller
+class PlaceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,36 +14,18 @@ class PostsController extends Controller
      */
     public function index()
     {
-      $places=Place::all();
-      return view('places',compact('places'));
+        $places = Place::all();
+        return view('places.index', compact('places'));
     }
 
-    public function addPlace(){
-      return view('posts.form');
-    }
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function createPlace()
+    public function create()
     {
-      $this->validate($request,
-      [
-        'name' => 'required',
-        'description'=>'required',
-        // 'category_id'=>'required'
-      ],
-      [
-        'name.required' => 'el campo nombre es requerido',
-        'description.required' => 'el campo description es requerido',
-        // 'category_id' => 'el campo categoria es requerido'
-      ]);
-
-      $place = new Place($request->all());
-      $place->save();
-      return redirect('places');
-
+        return view('places.form');
     }
 
     /**
@@ -54,20 +36,13 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
+        $place = new Place($request->all());
+        $place->user_id = 1;
+        $place->save();
 
-
-        $post = new Place($request->all());
-        $post->restaurant = 0;
-        $post->comercio = 1;
-        $post->user_id = 9;
-        $post->logo = 'sjdaiosdjsio';
-        $post->save();
-
-        dd($post);
-
-        return redirect('/places');
-
-    ;}
+        return redirect()->route('places.index');
+    }
 
     /**
      * Display the specified resource.
@@ -77,7 +52,8 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-
+        $place = Place::findOrFail($id);
+        return view('show.edit', compact('place'));
     }
 
     /**
@@ -88,7 +64,8 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+      $place = Place::findOrFail($id);
+      return view('places.edit', compact('place'));
     }
 
     /**
@@ -100,7 +77,12 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $place = Place::findOrFail($id);
+        $place->fill($request->all());
+        $place->save();
+
+        return redirect()->route('places.index');
+
     }
 
     /**
@@ -111,6 +93,9 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+          $place = Place::findOrFail($id);
+          $place->delete();
+
+          return redirect()->route('places.index');
     }
 }

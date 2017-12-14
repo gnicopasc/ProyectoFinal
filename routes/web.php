@@ -18,9 +18,6 @@ Route::get('/', function () {
 
 
 Auth::routes();
-Route::get('/buscar','SearchController@index');
-
-Route::get('/search','SearchController@search');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

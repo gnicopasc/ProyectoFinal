@@ -58,6 +58,9 @@ body {
         padding: 1px;
         background-color: rgb(172, 170, 122);
     }
+    .form-horizontal {
+        width: 800px;
+    }
 .posteo {
       list-style: none;
       padding-left: 0;
